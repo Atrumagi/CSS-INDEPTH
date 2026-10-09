@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0d1217;
+  --panel-bg: rgba(8, 10, 14, 0.78);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f3f3ee;
+  --muted: rgba(255, 255, 255, 0.8);
+  --accent: #e2d1b5;
+  --button: #e9d8af;
+  --button-text: #1a1c1f;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #0d1114;
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+main {
+  position: relative;
+  width: min(100%, 960px);
+  min-height: 420px;
+  padding: 52px 46px 36px 46px;
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(11, 17, 20, 0.86) 0%, rgba(11, 17, 20, 0.68) 28%, rgba(11, 17, 20, 0.2) 52%, rgba(11, 17, 20, 0.16) 100%),
+    url("images/food-image-bg.png") center center / cover no-repeat;
+  box-shadow: 0 30px 35px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 26% 35%, rgba(154, 167, 142, 0.18), transparent 26%),
+    linear-gradient(180deg, rgba(10, 14, 15, 0.2), rgba(10, 14, 15, 0.35));
+  pointer-events: none;
+}
+
+main > * {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 2vw + 1.2rem, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #f2f0ea;
+  max-width: 520px;
+}
+
+.recipies-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-bottom: 22px;
+  max-width: 470px;
+}
+
+.recipies-info p {
+  margin: 0;
+  font-size: 0.64rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.72);
+  text-transform: lowercase;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recipies-info span {
+  color: #f3eee7;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 216, 138, 0.9);
+  color: var(--button-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 22px rgba(0, 0, 0, 0.2);
+}
+
+.prep-steps {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding: 0;
+  max-width: 460px;
+}
+
+.step {
+  position: relative;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.68rem;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 211, 115, 0.95);
+  box-shadow: 0 0 10px rgba(255, 211, 115, 0.6);
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 18px 16px;
+  }
+
+  main {
+    padding: 34px 22px 26px;
+    min-height: 380px;
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .recipies-info {
+    gap: 10px 16px;
+  }
+
+  .prep-steps {
+    max-width: 100%;
+  }
+}
